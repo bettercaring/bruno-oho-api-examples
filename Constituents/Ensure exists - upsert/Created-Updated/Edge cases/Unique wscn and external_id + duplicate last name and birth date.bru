@@ -1,0 +1,31 @@
+meta {
+  name:  Unique wscn and external_id + duplicate last name and birth date
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://staging.app.weareoho.com/api/constituents/ensure_exists
+  body: json
+  auth: basic
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:basic {
+  username: ENV.fetch(USERNAME)
+  password: ENV.fetch(PASSWORD)
+}
+
+body:json {
+  {
+    "external_id": "1234567890abcdefabcde",
+    "first_name": "Sharada",
+    "surname": "Marc",
+    "birth_date": "15-07-1995",
+    "worker_screening_check_number": "12345682",
+    "organisation": { "id": 327 }
+  }
+}

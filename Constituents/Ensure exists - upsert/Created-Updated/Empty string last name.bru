@@ -1,0 +1,31 @@
+meta {
+  name: Empty string last name
+  type: http
+  seq: 8
+}
+
+post {
+  url: https://staging.app.weareoho.com/api/constituents/ensure_exists
+  body: json
+  auth: basic
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:basic {
+  username: ENV.fetch(USERNAME)
+  password: ENV.fetch(PASSWORD)
+}
+
+body:json {
+  {
+   "external_id": "1234567890abcdefabcdefghij",
+    "first_name": "Yasmin",
+    "surname": "",
+    "birth_date": "17-07-1995",
+    "worker_screening_check_number": "12345211",
+    "organisation": { "id": 327 }
+  }
+}
